@@ -118,6 +118,7 @@ int main() {
     else if (masukan == "integral"){
       cout<<"\nKalkulator hanya dapat menghitung integral tentu dari fungsi kuadrat\n";
       cout<<"Format Fungsi Kuadrat = A*x^2 + B*x + C\n";
+      
       // Input variabel A, B, dan C
       double A,B,C;
       cout<<"Masukkan nilai A: \n";
@@ -126,6 +127,7 @@ int main() {
       cin>>B;
       cout<<"Masukkan nilai C: \n";
       cin>>C;
+      
       int n;
       double a,b;
       // Batas atas
@@ -137,25 +139,30 @@ int main() {
       // jumlah segmen
       cout<<"masukkan jumlah segmen N: \n";
       cin>>n;
+      
       double h = (a - b)/n;
       double x[n], y[n];
       double sum = FungsiKuadrat(A,B,C,a) + FungsiKuadrat(A,B,C,b) ;
+      
       for (int i=1;i<=n-1;i++)            
     {                    
         x[i]=b+i*h;            
         sum = sum + (2 * FungsiKuadrat(A,B,C,x[i]));
     }
-    double integral=(h/2)*(sum);        
+    
+      double integral=(h/2)*(sum);        
     cout<<"Hasil dari Integral tentunya adalah "<<integral<<endl;
 
     }
+    
+    // Saat kata kunci yang dimasukkan tidak sesuai 
     else {
       cout<<"\nKalkulator tidak dapat memahami keinginan Anda\n";
       cout<<"Kata kunci yang Anda masukkan salah\n";
     }
     
+  // analasis kondisi yang akan menerima input apakah pengguna akan menggunakan kalkulator lagi
   string lanjut;
-  // analasis kondisi yang akan menerima input apakah pengguna akan //menggunakan kalkulator lagi
   cout<<"\nIngin menggunakan kalkulator lagi? Y/T\n";
   cin>>lanjut;
   if (lanjut == "Y" || lanjut == "y"){
